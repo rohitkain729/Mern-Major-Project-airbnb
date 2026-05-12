@@ -1,0 +1,265 @@
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.nav-link{
+    color: #222222 !important;
+    font-size: .9rem !important;
+    /* margin-left: -1rem !important; */
+    /* padding: 1rem; */
+    font-weight: 500;
+}
+
+.navbar-nav{
+    margin-left: 20rem;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    height: 8rem;
+    border-top: 1px solid #F7F7F7;
+    padding: 1.5rem;
+    background: #F7F7F7;
+}
+
+.left-footer,.right-footer{
+    display: flex;
+    flex-direction: row;
+}
+
+.left-footer{
+    gap: 1rem;
+    font-size: .9rem;
+}
+
+.right-footer{
+    gap: 1.5rem;
+    font-size: .9rem;
+}
+.card-img-overlay .card-title{
+    font-size: .8rem;
+    background-color: #F7F7F7;
+    padding: .5rem;
+    width: 7rem;
+    border-radius: .7rem;
+}
+
+.card:hover{
+    box-shadow: 0px 3px 3px red;
+    opacity: .7;
+}
+
+/* card */
+
+
+
+.container{
+    max-width: 80rem !important;
+    flex: 1;
+}
+
+.row {
+    /* padding-bottom: 10rem; */
+
+}
+
+.col-9{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card{
+margin-bottom: 2rem;
+border: none;
+}
+
+.card-body i{
+    font-size: .5rem;
+    color:#6A6A73;
+    
+}
+
+.card-img-overlay{
+opacity: .4 !important;
+}
+
+ .card-body .title{
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+
+.card-body  .price ,
+.card-body  .location,
+.card-body  .country,
+.card-body  .num
+{
+ 
+    font-size: .8rem;
+    color:#6A6A73;
+}
+
+.card-body  .num{
+    margin-left: .2rem;
+}
+.card a{
+    text-decoration: none;
+    color: #222222;
+}
+
+.card img{
+    height: 14rem;
+    object-fit: cover;
+}
+
+ body{
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+} 
+
+footer{
+/* position: absolute;     */
+/* bottom: 0; */
+/* left: 0; */
+width: 100%;
+background-color: #F7F7F7;
+/* flex: 1; */
+}
+
+.listing-save-btn{
+    margin-top: -15rem !important;
+}
+
+.form-style{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.save-btn{
+    width: 8rem !important;
+    margin-left: 1rem;
+}
+
+.form-card{
+    box-shadow: none !important;
+    width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+.edit-title{
+    box-shadow: none !important;
+}
+
+.edit-title:hover{
+    opacity: 1 !important;
+}
+
+.show-card{
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: none !important;
+    width: 50rem !important;
+}
+.show-card:hover{
+    opacity: 1;
+}
+
+.card .show-img{
+    height: 13rem !important;
+    /* width: 40rem !important; */
+    object-fit: cover !important;
+    /* margin-left: 7.5rem; */
+    
+}
+
+.review-area{
+    /* border: 1px solid rgb(165, 164, 164); */
+    padding: 1rem;
+    border-radius: 1rem;
+    position: relative;
+}
+
+
+
+
+form .review-range{
+width: 28.5rem; 
+margin-left: 7.5rem !important; 
+margin-top: -1.4rem;  
+margin-bottom: 2rem;
+/* text-align: start; */
+}
+.review-area form .range-input{
+    width: 22rem;
+    /* margin-left: rem; */
+}
+
+.review-area .review-heading{
+    border: 1px solid black;
+    width: 15rem;
+    padding: .5rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: yellow; */
+}
+
+.comment-label{
+    position: absolute;
+    left: 1.5rem;
+    bottom: 7rem;
+}
+
+.form-input-range{
+ margin-left: -10rem;
+}
+
+.range-numbers{
+    margin-left: 14.5rem;
+    margin-top: -1.8rem;
+}
+
+.review .review-col{
+    
+margin-right: 1rem !important;
+width: 15rem !important;
+font-size: .8rem;
+height: auto;
+border: 1px solid gray;
+padding: .7rem;
+border-radius: .5rem;
+margin-left: .5rem;
+text-align: start;
+position: relative;
+}
+
+.review .review-col span{
+display: block;
+margin-bottom: .5rem;
+}
+
+.card-title{
+font-size: 1rem;
+font-weight: 500;
+}
+
+.review-rating{
+    font-size: .8rem;
+    margin-top: .2rem;
+    font-weight: 500;
+}
+
+.review-del-btn{
+position: absolute;
+bottom: .5rem;
+right: .5rem;
+}
