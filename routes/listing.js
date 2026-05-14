@@ -5,7 +5,6 @@ const { listingSchema, reviewSchema } = require("../SchemaValidate/schema.js");
 const ExpressError = require("../utils/ExpressError.js");
 const Listing = require("../models/listing.js");
 
-
 const validateListing = (req, res, next) => {
   let result = listingSchema.validate(req.body);
   if (result.error) {
@@ -60,18 +59,22 @@ router.post(
 
     // newListing.image.url = listing.image.url;
     await newListing.save();
+    req.flash("success", "New Listing Created!");
     res.redirect("/listings");
   }),
 );
 
-// find by id
+// find by id show route
 router.get(
   "/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     console.log(id);
     const listing = await Listing.findById(id).populate("reviews");
-    console.log(listing);
+    if (!listing) {
+      req.flash("error", "Listing Doesn't Exists !");
+      res.redirect("/listings");
+    }
     res.render("listings/show.ejs", { listing });
   }),
 );
@@ -83,7 +86,10 @@ router.get(
     let { id } = req.params;
     console.log(id);
     const listing = await Listing.findById(id);
-    console.log(listing);
+    if (!listing) {
+      req.flash("error", "Listing Doesn't Exists !");
+      res.redirect("/listings");
+    }
     res.render("listings/edit.ejs", { listing });
   }),
 );
@@ -101,6 +107,7 @@ router.put(
     let updateListing = req.body.listing;
     console.log(updateListing);
     await Listing.findByIdAndUpdate(id, { ...updateListing });
+    req.flash("success", "Listing Updated Successfully !");
     res.redirect("/listings");
   }),
 );
@@ -113,10 +120,9 @@ router.delete(
     console.log(id);
     deletedListing = await Listing.findByIdAndDelete(id);
     console.log(deletedListing);
+    req.flash("success", "Successfully Deleted Listing !");
     res.redirect("/listings");
   }),
 );
-
-
 
 module.exports = router;
