@@ -1,10 +1,223 @@
-<% layout("/layouts/boilerplate")%>
+<% layout("/layouts/boilerplate") %>
+
+<body class="bg-body-tertiary">
+
+  <form
+    action="/listings"
+    method="POST"
+    class="form-style needs-validation"
+    novalidate
+  >
+
+    <div class="card form-card">
+
+      <h3 class="card-title text-center mt-3 edit-title">
+        Create New Listing
+      </h3>
+
+      <div class="row d-flex justify-content-center">
+
+        <div class="col-9 card-body">
+
+          <!-- TITLE -->
+
+          <div class="mb-3 col-9">
+            <label for="title" class="form-label link-primary">
+              Title
+            </label>
+
+            <input
+              type="text"
+              name="listing[title]"
+              id="title"
+              class="form-control"
+              required
+            />
+
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+
+            <div class="invalid-feedback">
+              Please choose a Title.
+            </div>
+          </div>
+
+          <!-- DESCRIPTION -->
+
+          <div class="mb-3 col-9">
+            <label for="description" class="form-label link-primary">
+              Description
+            </label>
+
+            <textarea
+              id="description"
+              name="listing[description]"
+              class="form-control"
+              rows="4"
+              required
+            ></textarea>
+
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+
+            <div class="invalid-feedback">
+              Please choose a Description.
+            </div>
+          </div>
+
+          <!-- IMAGE -->
+
+          <div class="mb-3 col-9">
+            <label for="image" class="form-label link-primary">
+              Image URL
+            </label>
+
+            <input
+              type="text"
+              name="listing[image][url]"
+              id="image"
+              class="form-control"
+              placeholder="Enter image URL"
+            />
+
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+
+            <div class="invalid-feedback">
+              Please choose an Image.
+            </div>
+          </div>
+
+          <!-- PRICE + LOCATION -->
+
+          <div class="row col-9">
+
+            <div class="col-md-4 mb-3">
+              <label for="price" class="form-label link-primary">
+                Price
+              </label>
+
+              <input
+                type="number"
+                name="listing[price]"
+                id="price"
+                class="form-control"
+                required
+              />
+
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+
+              <div class="invalid-feedback">
+                Please choose a Price.
+              </div>
+            </div>
+
+            <div class="col-md-8 mb-3">
+              <label for="location" class="form-label link-primary">
+                Location
+              </label>
+
+              <input
+                type="text"
+                name="listing[location]"
+                id="location"
+                class="form-control"
+                required
+              />
+
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+
+              <div class="invalid-feedback">
+                Please choose a Location.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- COUNTRY -->
+
+          <div class="mb-3 col-9">
+            <label for="country" class="form-label link-primary">
+              Country
+            </label>
+
+            <input
+              type="text"
+              name="listing[country]"
+              id="country"
+              class="form-control"
+              required
+            />
+
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+
+            <div class="invalid-feedback">
+              Please choose a Country.
+            </div>
+          </div>
+
+          <!-- BUTTON -->
+
+          <button
+            class="btn btn-dark text-white fw-medium mt-3 save-btn"
+            type="submit"
+            style="margin-left: 12rem;"
+          >
+            Add
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Bootstrap Validation Script -->
+
+  <script>
+    (() => {
+      'use strict';
+
+      const forms = document.querySelectorAll('.needs-validation');
+
+      Array.from(forms).forEach((form) => {
+        form.addEventListener(
+          'submit',
+          (event) => {
+            if (!form.checkValidity()) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+
+            form.classList.add('was-validated');
+          },
+          false
+        );
+      });
+    })();
+  </script>
+
+</body>
+
+
+
+
+<!-- <% layout("/layouts/boilerplate")%>
 <body class="bg-body-tertiary">
   <form action="/listings" method="POST" class="form-style needs-validation"  novalidate>
     <div class="card form-card">
       <h3 class="card title text-center mt-3 edit-title">Create New Listing</h3>
       <div class="row d-block">
         <div class="col-9 card-body">
+
           <div>
             <label for="title" class="form-label link-primary">Title</label>
             <input
@@ -13,8 +226,8 @@
               id="title"
               class="form-control"
               required
-            />
-            <div class="valid-feedback">Looks good!</div>
+
+               <div class="valid-feedback">Looks good!</div>
             <div class="invalid-feedback">Please choose a Title.</div>
           </div>
 
@@ -94,4 +307,4 @@
       </div>
     </div>
   </form>
-</body>
+</body> -->
