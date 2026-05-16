@@ -1,35 +1,14 @@
 <% layout("/layouts/boilerplate")%>
 <body>
-
-    <!-- <h3 class="text-center fs-4 fw-light font-monospace ">Listing Details : </h3> -->
-
-    <!-- <ul>
-        <li><%= listing.title %></li>
-        <li><%= listing.description %></li>
-        <li>&#8377 <%= listing.price.toLocaleString("en-IN") %></li>
-        <li><%= listing.location %></li>
-       
-        <li><%= listing.country %></li>
-        <li> <img src="<%= listing.image.url%>" alt=""> </li>
-
-    </ul>
-    <div>
-        <a href="/listings/<%=listing._id%>/edit">Edit this Listing</a>
-    </div>
-    <div>
-        <form action="/listings/<%=listing._id%>?_method=DELETE" method="post">
-            <button>delete Listing</button>
-        </form>
-    </div> -->
-
-
     <div class="card text-center show-card">
   <div class="card-header  fw-medium font-monospace show-card-title">
     <%= listing.title %>
   </div>
   <img src="<%= listing.image.url%>" class="card-img-top show-img" alt="Listing">
   <div class="card-body">
-
+    <div class="card-text mb-3" style="margin-left: -28rem;font-weight: 500;">
+      Owned By : <%=listing.owner.username.charAt(0).toUpperCase()+listing.owner.username.slice(1)%>
+    </div>
     <h5 class="card-title"><%= listing.description %></h5>
     <div class="row ms-5">
         <div class="col-3">
@@ -43,11 +22,13 @@
         </div>
     </div>
 
+   <% if( currUser &&currUser._id.equals(listing.owner._id)){ %>
     <a href="/listings/<%=listing._id%>/edit" class="btn btn-outline-primary text-black mt-2 d-inline-block">Edit Listing</a>
 
     <form action="/listings/<%=listing._id%>?_method=DELETE" method="POST" class="d-inline-block">
         <button class="btn btn-danger text-white mt-2 " type="submit">Delete</button>
     </form>
+  <% } %>
     <!-- <a href="/listings/<%=listing._id%>?_method=DELETE" class="btn btn-danger text-white mt-2">delete Listing</a> -->
   </div>
 

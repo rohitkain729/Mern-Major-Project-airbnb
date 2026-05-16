@@ -60,6 +60,7 @@ router.post(
     // }
 
     // newListing.image.url = listing.image.url;
+    newListing.owner=req.user._id;
     await newListing.save();
     req.flash("success", "New Listing Created!");
     res.redirect("/listings");
@@ -72,11 +73,12 @@ router.get(
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     console.log(id);
-    const listing = await Listing.findById(id).populate("reviews");
+    const listing = await Listing.findById(id).populate("reviews").populate("owner");
     if (!listing) {
       req.flash("error", "Listing Doesn't Exists !");
       res.redirect("/listings");
     }
+    console.log(listing);
     res.render("listings/show.ejs", { listing });
   }),
 );
