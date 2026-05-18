@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate")%>
   <body>
     <!-- <h3>Edit your Listing</h3> -->
-    <form action="/listings/<%=listing._id%>/update?_method=PUT" method="POST">
+    <form action="/listings/<%=listing._id%>/update?_method=PUT" method="POST" enctype="multipart/form-data">
 
 
       <!-- <input type="text" name="listing[title]" id=""  value="<%=listing.title%>"/><br>
@@ -42,13 +42,16 @@
           ><%=listing.description%></textarea>
         </div>
 
+        <div class="mt-2 mb-2">
+          <img src="<%=originalImage%>" alt="Image">
+        </div>
+
         <div>
-          <label for="image" class="form-label link-primary">Image URL</label>
+          <label for="image" class="form-label link-primary">Upload New Image</label>
           <input
-            type="text"
+            type="file"
             name="listing[image][url]"
             id="image"
-           value="<%=listing.image.url%>"
             class="form-control"
           />
         </div>

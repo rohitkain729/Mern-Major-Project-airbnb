@@ -25,4 +25,4 @@ async function main() {
   console.log("data is inititalized");
 };
 
-// initDB();
+initDB();

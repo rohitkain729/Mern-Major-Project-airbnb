@@ -1,3 +1,9 @@
+if(process.env.NODE_ENV !="production"){
+  require("dotenv").config();
+}
+
+
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -66,9 +72,9 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
-app.get("/", (req, res) => {
-  res.send("hi i am root");
-});
+// app.get("/", (req, res) => {
+//   res.send("hi i am root");
+// });
 
 
 app.use((req,res,next)=>{

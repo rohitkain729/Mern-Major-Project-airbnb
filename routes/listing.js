@@ -6,11 +6,23 @@ const ExpressError = require("../utils/ExpressError.js");
 const Listing = require("../models/listing.js");
 const { isLoggedIn, isOwner, validateListing } = require("../middleware.js");
 const listingController = require("../controllers/listings.js");
+const  multer = require("multer");
+const {storage} = require("../cloudConfig.js");
+const  upload = multer({storage});
 
-router
+  router
   .route("/")
   .get(wrapAsync(listingController.index))
-  .post(isLoggedIn, validateListing,wrapAsync(listingController.createListing));
+  .post(
+    upload.single('listing[image][url]'),
+    isLoggedIn, validateListing,wrapAsync(listingController.createListing));
+
+  // .post(upload.single('listing[image][url]'),(req,res)=>{
+  //   console.log(req.file);
+  //   res.send(req.file);
+  // });
+
+
 
 
 
@@ -52,6 +64,7 @@ router.put(
   "/:id/update",
   isLoggedIn,
   isOwner,
+  upload.single('listing[image][url]'),
   validateListing,
   wrapAsync(listingController.updateListing),
 );

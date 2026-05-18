@@ -75,6 +75,8 @@
     </div>
   </div>
 
+   
+
   <!-- Comment -->
   <div class="mb-3">
     <label
@@ -127,9 +129,12 @@
     <div class="d-flex justify-content-start gap-5">
 
       <span class="card-title"><%=review.author.username%></span>
+
       <span class="review-rating">Rating: <%=review.rating%><i class="fa-solid fa-star"></i></span>
      
+     
     </div>
+    
     <span class="mb-5"> Comment: <%=review.comment%></span>
      <form action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE" class="review-del-btn " method="POST">
         <button class="btn btn-dark btn-sm">Delete</button>

@@ -6,7 +6,7 @@
     action="/listings"
     method="POST"
     class="form-style needs-validation"
-    novalidate
+    novalidate enctype="multipart/form-data"
   >
 
     <div class="card form-card">
@@ -70,9 +70,10 @@
           <!-- IMAGE -->
 
           <div class="mb-3 col-9">
-            <label for="image" class="form-label link-primary">
+            <!-- <label for="image" class="form-label link-primary">
               Image URL
             </label>
+
 
             <input
               type="text"
@@ -80,7 +81,25 @@
               id="image"
               class="form-control"
               placeholder="Enter image URL"
+            /> -->
+
+            <label for="image" class="form-label link-primary">
+              upload Listing Image
+            </label>
+
+
+            <input
+              
+              name="listing[image][url]"
+              id="image"
+              class="form-control"
+              type="file"
+              
             />
+
+            
+
+
 
             <div class="valid-feedback">
               Looks good!
